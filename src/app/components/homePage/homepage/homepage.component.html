@@ -1,0 +1,221 @@
+<div class="full">
+    <div class="player" *ngIf="moviePlaying === true">
+        <div class="overlay" *ngIf="showDetailsShown === true">
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" (click)="exitMovie()">
+                    <path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM15.36 14.3C15.65 14.59 15.65 15.07 15.36 15.36C15.21 15.51 15.02 15.58 14.83 15.58C14.64 15.58 14.45 15.51 14.3 15.36L12 13.06L9.7 15.36C9.55 15.51 9.36 15.58 9.17 15.58C8.98 15.58 8.79 15.51 8.64 15.36C8.35 15.07 8.35 14.59 8.64 14.3L10.94 12L8.64 9.7C8.35 9.41 8.35 8.93 8.64 8.64C8.93 8.35 9.41 8.35 9.7 8.64L12 10.94L14.3 8.64C14.59 8.35 15.07 8.35 15.36 8.64C15.65 8.93 15.65 9.41 15.36 9.7L13.06 12L15.36 14.3Z" fill="#292D32"/>
+                    </svg>
+                    <img src="{{descriptionTab.item.banner}}" alt="">
+                    <div class="dCont">
+                        <p>{{descriptionTab.item.showTitle}}</p>
+                        <p *ngIf="descriptionTab.type == 'show'">{{episodeName}}</p>
+                    </div>
+                    <div class="controls">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 8H16M8 12H16M10 16H14M3.5 12C3.5 5.5 5.5 3.5 12 3.5C18.5 3.5 20.5 5.5 20.5 12C20.5 18.5 18.5 20.5 12 20.5C5.5 20.5 3.5 18.5 3.5 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        <div class="controlOuter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#323232" stroke-width="2"/>
+                                <path d="M13 9L10.2625 11.7375V11.7375C10.1175 11.8825 10.1175 12.1175 10.2625 12.2625V12.2625L13 15" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#323232" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M11 15L13.7158 12.2842V12.2842C13.8728 12.1272 13.8728 11.8728 13.7158 11.7158V11.7158L11 9" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <video src="{{videoSrc}}" autoplay controls #videoPlayer (mousemove)="mouseMove()" (timeupdate)="videoPlayerUpdate($event, videoPlayer)"></video>
+    </div>
+    <div class="topbar">
+        <div class="logo">
+            <p>
+                JDC Movies
+            </p>
+        </div>
+        <div class="nav">
+            <div (click)="adjustIndex(0)">
+            <p [style.color]="navbarIndex == 0 ? 'white' : '#67676b'">Home</p>
+            <svg *ngIf="navbarIndex == 0" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><path d="M1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080C-268.6666666666667,1067.5,203.5,1063,308,1005C412.5,947,518.5,785,627,732C735.5,679,852.3333333333334,692.1666666666666,959,687C1065.6666666666667,681.8333333333334,1161.5,651.5,1267,701C1372.5,750.5,1483.1666666666667,920.8333333333334,1592,984C1700.8333333333333,1047.1666666666667,2185.3333333333335,1064,1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080" fill="#d62e5e"></path></svg>
+            </div>
+             <div (click)="adjustIndex(1)">
+            <p [style.color]="navbarIndex == 1 ? 'white' : '#67676b'">Genres</p>
+            <svg *ngIf="navbarIndex == 1"  viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><path d="M1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080C-268.6666666666667,1067.5,203.5,1063,308,1005C412.5,947,518.5,785,627,732C735.5,679,852.3333333333334,692.1666666666666,959,687C1065.6666666666667,681.8333333333334,1161.5,651.5,1267,701C1372.5,750.5,1483.1666666666667,920.8333333333334,1592,984C1700.8333333333333,1047.1666666666667,2185.3333333333335,1064,1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080" fill="#d62e5e"></path></svg>
+            </div>
+            <div (click)="adjustIndex(2)">
+            <p [style.color]="navbarIndex == 2 ? 'white' : '#67676b'">Watchlist</p>
+            <svg *ngIf="navbarIndex == 2"  viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><path d="M1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080C-268.6666666666667,1067.5,203.5,1063,308,1005C412.5,947,518.5,785,627,732C735.5,679,852.3333333333334,692.1666666666666,959,687C1065.6666666666667,681.8333333333334,1161.5,651.5,1267,701C1372.5,750.5,1483.1666666666667,920.8333333333334,1592,984C1700.8333333333333,1047.1666666666667,2185.3333333333335,1064,1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080" fill="#d62e5e"></path></svg>
+            </div>
+            <div (click)="adjustIndex(3)">
+                <p [style.color]="navbarIndex == 3 ? 'white' : '#67676b'">Settings</p>
+                <svg *ngIf="navbarIndex == 3"  viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><path d="M1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080C-268.6666666666667,1067.5,203.5,1063,308,1005C412.5,947,518.5,785,627,732C735.5,679,852.3333333333334,692.1666666666666,959,687C1065.6666666666667,681.8333333333334,1161.5,651.5,1267,701C1372.5,750.5,1483.1666666666667,920.8333333333334,1592,984C1700.8333333333333,1047.1666666666667,2185.3333333333335,1064,1920,1080C1654.6666666666667,1096,268.6666666666667,1092.5,0,1080" fill="#d62e5e"></path></svg>
+                </div>
+        </div>
+        <div class="profile">
+            <div class="search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1;"/>
+                    </svg>
+                    <div class="searchfield">
+                        <input #searchInput type="text" placeholder="Search..." (keydown.enter)="searchItem(searchInput.value)">
+                    </div>
+                    <app-search-node #appSearch [servers]="getEnabledServers()" [descTab]="descriptionTab"></app-search-node>
+            </div>
+                <img src="{{currentProfile.picture}}" alt="">
+        </div>
+    </div>
+    <div class="area settings" [style.display]="navbarIndex == 3 ? 'flex' : 'none'">
+        <div class="module">
+            <div class="moduleTitle">
+                <svg _ngcontent-jxp-c5="" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><path _ngcontent-jxp-c5="" d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke-width: 1;"></path></svg>
+                <p>Search</p>
+            </div>
+            <div class="moduleBody">
+                <div class="moduleContent">
+                    <div class="contentTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" class="swhite"> <defs><style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:1.92px;}</style> </defs><g id="roll_brush" data-name="roll brush"> <path class="cls-1" d="M22.52,13a2.35,2.35,0,0,1,0,.26,3.82,3.82,0,0,1-3.83,3.57H16.77V13c0,1-2.15,1.92-4.8,1.92S7.17,14,7.17,13v3.83h-1A4.8,4.8,0,0,1,1.43,12.2a1.41,1.41,0,0,1,0-.2,4.78,4.78,0,0,1,4.8-4.8h0A6.68,6.68,0,0,1,6.8,4.68l.13-.26a5.71,5.71,0,0,1,4.83-3H12A5.75,5.75,0,0,1,17.72,7.2V9.12h1A3.84,3.84,0,0,1,22.52,13Z"/> <ellipse class="cls-1" cx="11.97" cy="12.96" rx="4.8" ry="1.92"/> <path class="cls-1" d="M16.77,13v3.83c0,1.06-2.15,1.92-4.8,1.92s-4.8-.86-4.8-1.92V13c0,1,2.15,1.92,4.8,1.92S16.77,14,16.77,13Z"/><ellipse class="cls-1" cx="11.97" cy="12.96" rx="4.8" ry="1.92"/> <path class="cls-1" d="M16.77,16.79v3.84a1.27,1.27,0,0,1-.65,1,7.88,7.88,0,0,1-4.15,1,7.88,7.88,0,0,1-4.15-1,1.25,1.25,0,0,1-.65-1V16.79c0,1.06,2.15,1.92,4.8,1.92S16.77,17.85,16.77,16.79Z"/></g></svg>
+                        <p>Threading</p>
+                    </div>
+                    <div class="contentItem">
+                        <select name="" id="" #searchThreadChange [value]="getSetting('search','searchStyle')" (change)="updateThreadType(searchThreadChange.value)">
+                            <option value="single">Single</option>
+                            <option value="multi">Multi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="moduleBody">
+                <div class="moduleContent">
+                    <div class="contentTitle">
+                        <svg _ngcontent-jxp-c1="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="icon swhite" style="width: 35px; height: 35px; fill: white;"><path _ngcontent-jxp-c1="" d="M704 446H320c-4.4 0-8 3.6-8 8v402c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8V454c0-4.4-3.6-8-8-8zm-328 64h272v117H376V510zm272 290H376V683h272v117z"></path><path _ngcontent-jxp-c1="" d="M424 748a32 32 0 1 0 64 0 32 32 0 1 0-64 0zm0-178a32 32 0 1 0 64 0 32 32 0 1 0-64 0z"></path><path _ngcontent-jxp-c1="" d="M811.4 368.9C765.6 248 648.9 162 512.2 162S258.8 247.9 213 368.8C126.9 391.5 63.5 470.2 64 563.6 64.6 668 145.6 752.9 247.6 762c4.7.4 8.7-3.3 8.7-8v-60.4c0-4-3-7.4-7-7.9-27-3.4-52.5-15.2-72.1-34.5-24-23.5-37.2-55.1-37.2-88.6 0-28 9.1-54.4 26.2-76.4 16.7-21.4 40.2-36.9 66.1-43.7l37.9-10 13.9-36.7c8.6-22.8 20.6-44.2 35.7-63.5 14.9-19.2 32.6-36 52.4-50 41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.3c19.9 14 37.5 30.8 52.4 50 15.1 19.3 27.1 40.7 35.7 63.5l13.8 36.6 37.8 10c54.2 14.4 92.1 63.7 92.1 120 0 33.6-13.2 65.1-37.2 88.6-19.5 19.2-44.9 31.1-71.9 34.5-4 .5-6.9 3.9-6.9 7.9V754c0 4.7 4.1 8.4 8.8 8 101.7-9.2 182.5-94 183.2-198.2.6-93.4-62.7-172.1-148.6-194.9z"></path></svg>
+                        <p>Servers</p>
+                    </div>
+                    <div class="contentItem" *ngFor="let server of servers;" (click)="updateSelectedServers(server.name)">
+                        <img src="{{server.icon}}">
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="swhite" width="800px" height="800px" viewBox="0 0 24 24" fill="none" *ngIf="serverSelected(server.name)"><g id="File / Cloud_Check"><path id="Vector" d="M15 11L11 15L9 13M23 15C23 12.7909 21.2091 11 19 11C18.9764 11 18.9532 11.0002 18.9297 11.0006C18.4447 7.60802 15.5267 5 12 5C9.20335 5 6.79019 6.64004 5.66895 9.01082C3.06206 9.18144 1 11.3498 1 13.9999C1 16.7613 3.23858 19.0001 6 19.0001L19 19C21.2091 19 23 17.2091 23 15Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="area" [style.display]="navbarIndex == 0 ? 'flex' : 'none'">
+        <div class="ls" [style.width]="descriptionTab.open ? '35%' : '0'" [style.borderRight]="descriptionTab.open ? '1px solid #1f1f22' : 'none'">
+            <div class="d" *ngIf="descriptionTab.open">
+                <img src="{{descriptionTab.item.banner}}" alt="">
+                <p>
+                    {{descriptionTab.item.showTitle}}
+                </p>
+                <div class="badges">
+                    <p class="badge-age">
+                        {{descriptionTab.item.age}}
+                    </p>
+                    <p class="badge-release">
+                        {{descriptionTab.item.releaseDate}}
+                    </p>  
+                    <div class="badge-rating">
+                        {{descriptionTab.item.rating}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 30 30" style="
+    width: 26px;
+    height: 26px;
+    margin-left: 4px;
+">
+
+<g data-name="Layer 2" id="Layer_2">
+
+<g id="Interface-Light">
+
+<g id="interface-light-rating-star-2">
+
+<path class="cls-1" d="M27,8.52A5.86,5.86,0,0,0,21.48,3,4.19,4.19,0,0,1,18.88,2a5.88,5.88,0,0,0-7.76,0A4.19,4.19,0,0,1,8.52,3,5.86,5.86,0,0,0,3,8.52,4.19,4.19,0,0,1,2,11.12a5.88,5.88,0,0,0,0,7.76A4.19,4.19,0,0,1,3,21.48,5.86,5.86,0,0,0,8.52,27,4.19,4.19,0,0,1,11.12,28a5.88,5.88,0,0,0,7.76,0A4.19,4.19,0,0,1,21.48,27,5.86,5.86,0,0,0,27,21.48,4.19,4.19,0,0,1,28,18.88a5.88,5.88,0,0,0,0-7.76A4.19,4.19,0,0,1,27,8.52Z" style="
+    fill: #2196F3;
+    stroke: none;
+"></path><path class="cls-1" d="M15.68,8.49,17,12.12a.74.74,0,0,0,.65.5l3.69.15a.76.76,0,0,1,.42,1.35l-2.9,2.39a.78.78,0,0,0-.25.8l1,3.72a.73.73,0,0,1-1.09.84L15.4,19.72a.69.69,0,0,0-.8,0l-3.08,2.15A.73.73,0,0,1,10.43,21l1-3.72a.78.78,0,0,0-.25-.8l-2.9-2.39a.76.76,0,0,1,.42-1.35l3.69-.15a.74.74,0,0,0,.65-.5l1.28-3.63A.72.72,0,0,1,15.68,8.49Z" style="
+    fill: #FFC107;
+    stroke: white;
+"></path>
+
+
+
+</g>
+
+</g>
+
+</g>
+
+</svg>
+                    </div>
+                </div>
+                <p>
+                    {{descriptionTab.item.desc}}
+                </p>
+                <div class="genres">
+                    <div class="genre" *ngFor="let item of descriptionTab.item.genres.split(' ')">
+                        <p>{{item}}</p>
+                    </div>
+                </div>
+                <!-- <app-season-breakdown (timeUpdate)="updateStartTime($event)"  (selectedSeasonUpdate)="updateSeasonNumber($event)" (episodeNameUpdate)="updateEpisodeName($event)" (episodeNumberUpdate)="updateEpisodeNumber($event)" [forceCDR]="forceCDR" [descriptionTab]="descriptionTab" [selectedSeason]="selectedSeason" [allWatchHistory]="allWatchHistory" [startTime]="startTime" [episodeName]="episodeName" [episodeNumber]="episodeNumber"></app-season-breakdown> -->
+                 <div class="seasonInfo" *ngIf="descriptionTab.type == 'show'">
+                    <div class="sInfo">
+                        <p>Season</p>
+                        <select name="" id="" #sel value=0 (change)="numbify(sel.value)">
+                            <option value="{{i}}" *ngFor="let seasonInfo of descriptionTab.item.seasonInfo; let i = index;">
+                                {{seasonInfo.seasonNumber}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="sResults">
+                        <div class="sResult" *ngFor="let desc of descriptionTab.item.seasonInfo[selectedSeason].seasonEpisodes" (click)="existsInWatchHistory(descriptionTab.item.showTitle, {s:selectedSeason, e:desc.episodeNumber}) ? reWatch(selectedSeason, desc.episodeNumber, descriptionTab.item.sender, 'show', getResumeTime(descriptionTab.item.showTitle, {s:selectedSeason, e:desc.episodeNumber}), descriptionTab.item) : invokeShow((selectedSeason), desc.episodeNumber, descriptionTab.item.sender)">
+                           <div class="txtd">
+                            <div class="txt">
+                            <p class="episodeNumber">
+                                {{desc.episodeNumber}}
+                            </p>
+                            <p class="episodeName">
+                                {{desc.episodeName}}
+                            </p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 512 512" *ngIf="existsInWatchHistory(descriptionTab.item.showTitle, {s:selectedSeason, e:desc.episodeNumber})"><path d="M256,48C141.31,48,48,141.31,48,256s93.31,208,208,208,208-93.31,208-208S370.69,48,256,48ZM376,230.15a8.62,8.62,0,0,1-8.62,8.62H307.84a8.61,8.61,0,0,1-6.09-14.71l22.17-22.17-5.6-6.51a87.38,87.38,0,1,0-62.94,148,87.55,87.55,0,0,0,82.42-58.25A16,16,0,1,1,368,295.8,119.4,119.4,0,1,1,255.38,136.62a118.34,118.34,0,0,1,86.36,36.95l.56.62,4.31,5,14.68-14.68a8.44,8.44,0,0,1,6-2.54,8.61,8.61,0,0,1,8.68,8.63Z" (click)="$event.stopPropagation(); invokeShow(selectedSeason, desc.episodeNumber, descriptionTab.item.sender)"/></svg>
+
+
+                    </div>
+                            <div class="progressbar" *ngIf="existsInWatchHistory(descriptionTab.item.showTitle, {s:selectedSeason, e:desc.episodeNumber})">
+                                <div class="progress" [style.width]="getWatchProgress(descriptionTab.item.showTitle, {s:selectedSeason, e:desc.episodeNumber}) + '%'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <button class="play" *ngIf="descriptionTab.item?.playUrl !== undefined" (click)="invokeMovie()">Watch</button>
+            </div>
+        </div>
+        <div class="catalog" [style.width]="descriptionTab.open ? '65%' : '100%'">
+            <div class="showComponent" *ngIf="currentlyWatching.length > 0">
+                <p class="componentTitle">
+                    Continue Watching
+                </p>
+                <div class="movies fl">
+                    <div class="card" *ngFor="let item of currentlyWatching">
+                        <img src="{{item.descItem.banner}}" alt="" (click)="descriptionTab.update({open:true, type:item.type, item:item.descItem})">
+                        <div class="info">
+                            <div class="cont">
+                                <svg _ngcontent-atr-c3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" style="width: 30px; height: 30px;" (click)="reWatch(item?.seasonData?.s, item?.seasonData?.e, item.descItem.sender, item.type, item.resumeTime, item.descItem)"><path _ngcontent-atr-c3="" d="M11.9707 22C17.4936 22 21.9707 17.5228 21.9707 12C21.9707 6.47715 17.4936 2 11.9707 2C6.44786 2 1.9707 6.47715 1.9707 12C1.9707 17.5228 6.44786 22 11.9707 22Z"></path><path _ngcontent-atr-c3="" d="M14.9694 10.2301L12.0694 8.56012C11.3494 8.14012 10.4794 8.14012 9.75938 8.56012C9.03938 8.98012 8.60938 9.72012 8.60938 10.5601V13.9101C8.60938 14.7401 9.03938 15.4901 9.75938 15.9101C10.1194 16.1201 10.5194 16.2201 10.9094 16.2201C11.3094 16.2201 11.6994 16.1201 12.0594 15.9101L14.9594 14.2401C15.6794 13.8201 16.1094 13.0801 16.1094 12.2401C16.1294 11.4001 15.6994 10.6501 14.9694 10.2301Z"></path></svg>
+                                <div class="centerInfo">
+                                    <p>{{item.parentName}}</p>
+                                    <p *ngIf="item.type=='show'">{{item.childName}}</p>
+                                    <div class="progressbar">
+                                        <div class="progress" [style.width]="item.progress + '%'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-movies (selectMovie)="incomingMovie($event)"></app-movies>
+            <app-shows></app-shows>
+        </div>
+    </div>
+</div>

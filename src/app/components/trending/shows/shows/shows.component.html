@@ -1,0 +1,55 @@
+<div class="showComponent">
+    <p class="componentTitle">
+        Popular Shows
+    </p>
+    <div class="movies">
+        <div class="card" *ngFor="let movie of shows">
+            <img src="{{movie.banner}}" alt="">
+            <div class="info">
+                <div class="cont">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" style="width: 30px; height: 30px;">
+                        <path d="M11.9707 22C17.4936 22 21.9707 17.5228 21.9707 12C21.9707 6.47715 17.4936 2 11.9707 2C6.44786 2 1.9707 6.47715 1.9707 12C1.9707 17.5228 6.44786 22 11.9707 22Z"/>
+                        <path d="M14.9694 10.2301L12.0694 8.56012C11.3494 8.14012 10.4794 8.14012 9.75938 8.56012C9.03938 8.98012 8.60938 9.72012 8.60938 10.5601V13.9101C8.60938 14.7401 9.03938 15.4901 9.75938 15.9101C10.1194 16.1201 10.5194 16.2201 10.9094 16.2201C11.3094 16.2201 11.6994 16.1201 12.0594 15.9101L14.9594 14.2401C15.6794 13.8201 16.1094 13.0801 16.1094 12.2401C16.1294 11.4001 15.6994 10.6501 14.9694 10.2301Z"/>
+                        </svg>
+                        <div class="centerInfo">
+                            <p>{{movie.showTitle}}</p>
+                            <p>{{movie.genres}}</p>
+                        </div>
+                        <div class="div">
+    
+                        </div>
+                        <div class="rightActions">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none" style="
+        width: 30px;
+        height: 30px;
+    ">
+    <path d="M8 8H16M8 12H16M10 16H14M3.5 12C3.5 5.5 5.5 3.5 12 3.5C18.5 3.5 20.5 5.5 20.5 12C20.5 18.5 18.5 20.5 12 20.5C5.5 20.5 3.5 18.5 3.5 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="
+        stroke: white;
+    "></path>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" style="
+    width: 30px;
+    height: 30px;
+    fill: white;
+">
+
+<g data-name="Layer 2">
+
+<g data-name="monitor">
+
+<rect width="24" height="24" opacity="0"></rect>
+
+<path d="M19 3H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h6v2H7a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2h-4v-2h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zm1 11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"></path>
+
+</g>
+
+</g>
+
+</svg>
+                        </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,457 @@
+.full {
+    background:#17171b;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.topbar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #1f1f22;
+    color: #67676b;
+    box-sizing: border-box;
+    padding: 2vh;
+}
+.topbar .nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5vw;
+}
+.topbar .nav p {
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.topbar .logo {
+    width:30%;
+    color:white;
+}
+.topbar .nav div svg{
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    bottom: -19px;
+}
+.topbar .nav div {
+    position:relative;
+}
+.topbar .profile {
+    width: 35%;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2vw;
+}
+.topbar .search {
+    position:relative;
+    width:20px;
+    transition:all 0.25s ease;
+}
+.topbar .search svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+.topbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.topbar .search .searchfield {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 0;
+    border-bottom: 1px solid white;
+    transition:all 0.25s ease;
+    overflow:hidden;
+}
+.topbar .search:hover {
+    width:200px;
+}
+.topbar .search:hover .searchfield {
+    width: 90%;
+    margin-left: 10%;
+}
+
+.topbar .search:has(input:focus) {
+    width:200px;
+}
+.topbar .search .searchfield:has(input:focus) {
+    width: 90%;
+    margin-left: 10%;
+    border-bottom:1px solid rgb(214, 46, 94);
+}
+
+.topbar .searchfield input {
+    width: 100%;
+    margin-top: 4px;
+    padding-left: 6px;
+    background: none;
+    border: none;
+    outline: none;
+    color: gray;
+    font-family: 'arial';
+    font-size: 16px;
+}
+.catalog {
+    transition:all 0.25s ease;
+}
+.area > .ls 
+{
+position:sticky;
+top:0;
+}
+.area {
+    display:flex;
+    overflow-y: scroll;
+    height: calc(100% - 10vh);
+}
+.area .d {
+    width: 100%;
+    height: calc(100vh - 10vh - 1px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    box-sizing: border-box;
+    padding: 4px;
+    position: relative;
+    overflow-y:scroll;
+}
+.area .d .play {
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
+    border: 0;
+    width: 50%;
+    aspect-ratio: 3/1;
+    border-radius: 5px;
+    background: #E91E63;
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 0 4px 1px #656363;
+}
+.area .d img {
+    width: 80%;
+    aspect-ratio: 4/3;
+    border-radius: 0.7em;
+}
+.area .d > p:first-of-type{
+    color: #ececec;
+    padding: 8px;
+    border-radius: 5px;
+    background: #242424a6;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: -11px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.area .d > p:not(:first-of-type) {
+    text-align: center;
+    color: #ffffff91;
+    font-size: 12px;
+}
+.area .d .badges {
+    display: flex;
+    gap: 2vw;
+    padding: 6px;
+    background: #1d1d1d;
+    border-radius: 8px;
+    border: 1px solid #8582821c;
+}
+.area .d .badges p {
+    width: fit-content;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+    height: 30px;
+    background: white;
+    border-radius: 5px;
+    color: #3a3939;
+    box-shadow: 0 0 11px 1px #6b6969;
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+}
+.area .d .badges p:first-child {
+    background: black;
+    color: #e7e5e5;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.area .d .badges > div {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 5px;
+    color: #000000;
+    box-shadow: 0 0 11px 1px #6b6969;
+    font-family: fantasy;
+    font-size: 25px;
+}
+.area .d .badges > div > svg {
+    width: 26px;
+    height: 26px;
+    margin-left: 4px;
+}
+.player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    background: #000000a1;
+    backdrop-filter: blur(4px);
+}
+.player > video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.player > .overlay {
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    z-index: 2147483647;
+    height: 100px;
+    width: 80vw;
+}
+.player > .overlay .details p:first-child {
+font-size:22px;
+}
+.player > .overlay .details p:not(:first-child) {
+    font-size:16px;
+}
+.player .overlay .details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    width: calc(100% - 20px);
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+    background: #ffffff1f;
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2147483647;
+}
+.player .overlay .details > img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #656565;
+}
+.player .overlay .details .dCont > p {
+    color:#ffffff96;
+}
+.player .overlay .controls{
+    margin-left:auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.player .overlay .controls .controlOuter{
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 14px;   
+}
+.player .overlay .details svg {
+    width:30px;
+    height:30px;
+    box-shadow: 0 0 0px 2px #9C27B0;
+    border-radius:50%;
+    opacity:0.7;
+}
+.player .overlay .details path {
+    fill:#ffffffb5 !important;
+}
+.sInfo {
+    display: flex;
+    gap: 10px;
+    color: white;
+    padding: 8px;
+    background: #80808033;
+    border-radius: 5px;
+    align-items: center;
+}
+.sInfo select {
+    background: #343434;
+    border: 0;
+    border: 1px solid #3e3e3e;
+    padding: 4px;
+    border-radius: 6px;
+    color: gray;
+}
+.sResults .sResult:first-child {
+    margin-top: 2px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.sResults .sResult:last-child {
+    margin-bottom: 2px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.sResults .sResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #80808033;
+    color: #cfcfcf;
+    font-weight: 100;
+    padding: 4px;
+    flex-direction: column;
+}
+.sResults .sResult svg {
+    width:30px;
+    height:30px;
+    margin-left: auto;
+    flex-shrink:0;
+}
+.sResults .sResult .txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.sResults .sResult .txtd{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.sResults .sResult p {
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.seasonInfo {
+    width:100%;
+}
+.sResult:hover {
+    background: #E91E63 !important;
+    padding: 8px !important;
+}
+.progressbar {
+    width: 100%;
+    height: 4px;
+    background: #80808024;
+    border-radius: 10px;
+    margin-top: 3px;
+    border: 1px solid #ffffff3b;
+}
+.progressbar .progress {
+    height: 100%;
+    background: #2196f36e;
+    border-radius: 10px;
+    transition:width 0.25s ease;
+}
+.movies.fl > .card {
+    flex-grow:1;
+    flex-shrink:0;
+}
+.area.settings {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 10vh);
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+}
+
+.area.settings .module .moduleTitle > svg {
+    width:20px;
+    height:20px;
+    stroke:#fff;
+}
+.area.settings .module .contentTitle > svg {
+    width:35px;
+    height:35px;
+    fill:white;
+}
+
+.area.settings .module .moduleTitle, .area.settings .module .contentTitle {
+    display: flex;
+    gap: 2vw;
+    align-items:center;
+}
+.area.settings .module .contentTitle {
+    justify-content: center;
+}
+.area.settings .module .contentItem {
+    background: rgb(103 103 107 / 23%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 50%;
+    border-radius: 12px;
+    box-shadow: 0 0 1px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:6px;
+    cursor:pointer;
+    transition:background 0.25s ease;
+}
+.area.settings .module .contentItem:hover {
+    background:#E91E63;
+}
+.area.settings .module .contentItem select {
+    width: 100%;
+    padding: 6px;
+    border-radius: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+.area.settings .module{
+    width:80%;
+}
+.area.settings .module .moduleContent{
+    margin-bottom:15px;
+}
+.area.settings .contentItem svg{
+    width:30px;
+    height:30px;
+}
+.area.settings .module img{
+    width:30px;
+    height:30px;
+}
+.swhite {
+    stroke:white;
+}

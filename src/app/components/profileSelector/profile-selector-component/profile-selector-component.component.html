@@ -1,0 +1,55 @@
+<div class="fullContainer">
+    <div class="main newProfileD" [class.hide]="accountOption !== 'new'">
+        <div class="add" (click)="addProfile()" *ngIf="profileName.length > 2 && profileName !== 'Name'">
+            <p>+</p>
+        </div>
+        <h1 class="mainTitle">Create A Profile</h1>
+        <div class="halfs">
+            <div class="half1">
+                <p>Profile Name</p>
+                <input type="text" placeholder="Name" #prName (input)="nameType(prName)">
+            </div>
+            <div class="half2">
+                <img src="{{profilePicture}}" alt="">
+                <p>{{profileName.length > 0 ? profileName : 'Name'}}</p>
+            </div>
+        </div>
+        <p>Profile Icon</p>
+        <div class="icons" #icons (click)="selectCharacter($event)">
+            <img src="https://www.cleveland.com/resizer/esAKvEBmq-2oEka-DOEoUQ-_TZU=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/expo.advance.net/img/4eb3a4f864/width2048/28b_nnsmoviesshrek2.jpeg" alt="Shrek">
+            <img src="https://hips.hearstapps.com/harpersbazaaruk.cdnds.net/17/30/1500890379-wonder-woman-1497233509_1.jpg?resize=1200:*" alt="Wonder Woman">
+            <img src="https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDk0NjQ4NDQ4ODUzMzUy/50-best-female-movie-character-names-of-all-time.jpg" alt="">
+            <img src="https://media.zenfs.com/en/purewow_185/292d846d024c8d643e3cd20f5755696f" alt="">
+            <img src="https://media1.popsugar-assets.com/files/thumbor/iIM4XKQp7UsMTfwjnGIda2btUiQ/1056x0:2856x1800/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2022/10/28/717/n/1922283/5f4ad51f635bffa8b7a940.28127881_/i/DIY-Costumes-From-TV-Shows-Movies.jpg" alt="">
+            <img src="https://media1.popsugar-assets.com/files/thumbor/o2WoVsjF8J-9C_co38zZcibP9-U/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/06/26/803/n/1922283/71e074df5b328330a6e148.31128348_/i/Side-Movie-Characters-Deserve-Own-Movies.jpg" alt="">
+            <img src="https://lumiere-a.akamaihd.net/v1/images/15515bcad707e475579080cd1780a55eee24091f.jpeg?region=0,0,640,640" alt="">
+            <img src="https://cdn3.whatculture.com/images/2021/07/bf156cf7b871c10b-1200x675.jpg" alt="">
+            <img src="https://www.gannett-cdn.com/-mm-/ea8a07dc617309ca168e259d006a72abae509118/c=0-35-650-402/local/-/media/2016/02/25/SiouxFalls/SiouxFalls/635919633708862216-rocky.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" alt="">
+            <img src="https://www.cleveland.com/resizer/2P4OKNJD3buCj8m1MkBnlWMLizo=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/expo.advance.net/img/ba0dea617d/width2048/527_dogsrejoicejohnwick3isonthewayandsomeplotdetailshaveleaked1500x1000.jpeg" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdB03tpgeqnBIUu-E7sql_I7tCCUR31Lr2ZZp3KQYvuLaL9oJxSVXqCpH4ZRzHZjqXxTSKzyDAuk&usqp=CAU&ec=48665701" alt="">
+            <img src="https://www.cleveland.com/resizer/nQiJHJ971ZiIr8TzI7hPccPOBKA=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/expo.advance.net/img/aeff21dc56/width2048/fa0_jacksparrow.jpeg" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="main" [class.hide]="accountOption !== 'main'">
+        <h1 class="mainTitle">Who's watching?</h1>
+        <div class="container">
+            <div class="noProfiles" *ngIf="profiles.length == 0">
+                <p>Create your first profile</p>
+            </div>
+            <div class="profiles" *ngIf="profiles.length > 0">
+                <div class="profile" *ngFor="let profile of profiles" (click)="profileClick(profile?.['name'])">
+                    <img src="{{profile?.['picture']}}" alt="">
+                    <p class="name">{{profile?.['name']}}</p>
+                </div>
+            </div>
+            <div class="profile newProfile" (click)="accountOption = 'new'">
+                <p>+</p>
+                <p class="name">New</p>
+            </div>
+        </div>
+    </div>
+</div>

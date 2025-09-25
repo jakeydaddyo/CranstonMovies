@@ -1,0 +1,81 @@
+.sInfo {
+    display: flex;
+    gap: 10px;
+    color: white;
+    padding: 8px;
+    background: #80808033;
+    border-radius: 5px;
+    align-items: center;
+}
+.sInfo select {
+    background: #343434;
+    border: 0;
+    border: 1px solid #3e3e3e;
+    padding: 4px;
+    border-radius: 6px;
+    color: gray;
+}
+.sResults .sResult:first-child {
+    margin-top: 2px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.sResults .sResult:last-child {
+    margin-bottom: 2px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.sResults .sResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #80808033;
+    color: #cfcfcf;
+    font-weight: 100;
+    padding: 4px;
+    flex-direction: column;
+}
+.sResults .sResult svg {
+    width:30px;
+    height:30px;
+    margin-left: auto;
+    flex-shrink:0;
+}
+.sResults .sResult .txt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.sResults .sResult .txtd{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.sResults .sResult p {
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.seasonInfo {
+    width:100%;
+}
+.sResult:hover {
+    background: #E91E63 !important;
+    padding: 8px !important;
+}
+.progressbar {
+    width: 100%;
+    height: 4px;
+    background: #80808024;
+    border-radius: 10px;
+    margin-top: 3px;
+    border: 1px solid #ffffff3b;
+}
+.progressbar .progress {
+    height: 100%;
+    background: #2196f36e;
+    border-radius: 10px;
+    transition:width 0.25s ease;
+}

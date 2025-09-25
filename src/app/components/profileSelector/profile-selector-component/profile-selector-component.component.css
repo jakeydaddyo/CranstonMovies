@@ -1,0 +1,210 @@
+h1.mainTitle {
+    font-size:6vw;
+    color:white;
+    font-family: sans-serif;
+    font-weight: 100;
+    margin:0;
+    text-align:center;
+}
+.fullContainer {
+    margin:0;
+    padding:0;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background:#000115;
+    box-sizing: border-box;
+    padding:20px;
+}
+.main {
+    width:80%;
+    height:80%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    left:10%;
+    top:10%;
+    flex-direction: column;
+    gap:4vh;
+}
+
+.main p {
+    color:#ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:100;
+    margin:0;
+}
+.main .profiles {
+    border-right: 1px solid #ffffff40;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.main .profile img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 0 14px #ffffff;
+}
+.main .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.main .profile p {
+    font-size:4vw;
+}
+.main .newProfile p:first-child {
+    width: 150px;
+    height: 150px;
+    font-size:100px;
+    background: #e91e63;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 0 14px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main {
+    display:flex;
+    gap:2vw;
+}
+.main .container {
+    display:flex;
+    gap:20px;
+}
+.newProfileD {
+    background: #f3f3f3;
+    z-index: 55;
+    border-radius: 10px;
+    color:#282828 !important;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 0 10px 5px #e91e63;
+}
+
+.newProfileD p, .newProfileD h1, .newProfile h2 {
+    color:inherit !important;
+}
+.newProfileD .add {
+    position: absolute;
+    width: 15%;
+    aspect-ratio: 1;
+    background: #e91e63;
+    border-radius: 50%;
+    top: -18px;
+    right: -18px;
+    max-width: 70px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.newProfileD .add p {
+    color:white !important;
+    font-size:300%;
+}
+.newProfileD p {
+    align-self: baseline;
+    font-weight: 300;
+}
+.newProfileD .halfs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.newProfileD .halfs div {
+    margin-right:10vw;
+}
+.newProfileD .halfs div > p {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.newProfileD input {
+    height: 4vh;
+    width: 30vw;
+    align-self: baseline;
+    background: none;
+    border: 0;
+    outline: none;
+    border-radius: 2px;
+    padding-left: 6px;
+    box-shadow: 0px 2px 2px #e91e63;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: 'arial';
+    color: #464646;
+}
+.newProfileD .halfs img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #e91e6391;
+    padding: 4px;
+}
+.newProfileD .icons {
+    display: flex;
+    width: 100%;
+    height: 145px;
+    overflow-y: scroll;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    border-radius: 63px;
+    padding-left: 10px;
+    padding-right: 10px;
+    scroll-snap-type: x mandatory;
+    background: #e2e2e2;
+    border: 1px solid #c4c4c4;
+}
+.newProfileD .icons img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    scroll-snap-align: start;
+}
+
+.newProfileD .half2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.newProfileD .half2 p{
+    margin: auto;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.hide {
+    width:0 !important;
+    height:0 !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    margin:0 !important;
+    box-shadow: none;
+    transition: all 0.25s ease;
+}
